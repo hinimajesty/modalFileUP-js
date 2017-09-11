@@ -14,10 +14,13 @@ The submit button is the actual button that would send the file(s) to the server
 
 The test.html has been included for testing purposes. Read the code in that file and adopt it for your project. 
 
-#How to Install 
+**How to Install** 
+ 
 Download the ZIP file and extract to a directory of choice. I would advice you seprate it from the project directory until you can integrate it into your existing project. 
 
 The package depends on JQuery and has been pulled in using the CDN. If your project uses a local verion jQuery you can replace it. NB: testing the test.html should mean that you are connected to the internet at the time else Jquery would not be downloaded and therefore would not be defined. 
 
 Customize the code for integration, include it in your project, make it work and thank me later.... :) 
-#Happy coding @DirtyScreen 
+Dont forget your can do JS minification for production code. 
+
+**Happy coding @DirtyScreen 
