@@ -17,5 +17,7 @@ The test.html has been included for testing purposes. Read the code in that file
 #How to Install 
 Download the ZIP file and extract to a directory of choice. I would advice you seprate it from the project directory until you can integrate it into your existing project. 
 
+The package depends on JQuery and has been pulled in using the CDN. If your project uses a local verion jQuery you can replace it. NB: testing the test.html should mean that you are connected to the internet at the time else Jquery would not be downloaded and therefore would not be defined. 
+
 Customize the code for integration, include it in your project, make it work and thank me later.... :) 
 #Happy coding @DirtyScreen 
