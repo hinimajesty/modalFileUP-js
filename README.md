@@ -21,6 +21,6 @@ Download the ZIP file and extract to a directory of choice. I would advice you s
 The package depends on JQuery and has been pulled in using the CDN. If your project uses a local verion jQuery you can replace it. NB: testing the test.html should mean that you are connected to the internet at the time else Jquery would not be downloaded and therefore would not be defined. 
 
 Customize the code for integration, include it in your project, make it work and thank me later.... :) 
-Dont forget your can do JS minification for production code. 
+Dont forget you can do JS minification for production code. 
 
 **Happy coding @DirtyScreen 
