@@ -1,0 +1,308 @@
+/**------------------------------------------------------*
+ * Author   -> Hini Majesty                              *
+ * Date     -> 26/06/2017                                *
+ * Job      -> Custom File upload in a Light Box Modal   *
+ * version  -> 1.0                                       *
+ * Happy Coding :-)                                      *
+/**------------------------------------------------------*/
+
+/*------------------ modal related css ------------------*/
+#modal-overlay {
+   position:fixed;
+   display: none;
+   background-color: rgba(80, 97, 92, 1.0); 
+   top:0;
+   left:0;
+   height:100%;
+   width:100%;
+   -webkit-animation: fade-in .5s ease,fade-in .5s linear;
+   animation: fade-in .5s ease,fade-in .5s linear;
+}
+
+#btn-close  {
+  color: rgba(0,0,0,.2); 
+  float:right;
+  display:block;
+  margin-top:-30px;
+  font-size:20px;
+  -webkit-font-stretch: extra-expanded;
+  font-weight:900;
+  cursor:pointer;
+  padding:10px;
+  font-family:helvetica;
+}
+
+#btn-close:hover  {
+    animation:colorIn .5s;
+    animation-timing-function:ease-in-out;
+    animation-fill-mode:forwards;
+    animation-iteration-count: 1;
+     
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation:colorIn .5s;
+    -webkit-animation-timing-function:ease-in-out;   
+    -webkit-animation-fill-mode: forwards;
+}
+
+#modal-container {
+    position:fixed;
+    height:250px;
+    width:70%;
+    width:500px;
+    margin-left:-270px;
+    left:50%;
+    top:20vh;
+    background-color:white; 
+    display: none; 
+    -webkit-animation: popup .5s ease-in;
+    animation: popup .5s ease-in;
+    padding:40px;
+    padding-right:20px;
+    border-radius: 5px; 
+    z-index:9999;
+}
+
+/*-------- Animation Classes  ---------*/
+.ani-popup {
+  -webkit-animation: popup .5s ease-in;
+  animation: popup .5s ease-in;
+}
+
+.ani-popout {
+   -webkit-animation: popout .5s ease-in;
+   animation: popout .5s ease-in;
+}
+
+.fade-out {
+    -webkit-animation: fade-out .5s ease,fade-in .5s linear;
+    animation: fade-out .5s ease,fade-in .5s linear;
+}
+
+/*------------  Animations ---------- */
+@keyframes fade-in {
+    0% {
+        opacity: 0; 
+    }
+   100% {
+        opacity: 1; 
+   }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1; 
+    }
+   100% {
+        opacity: 0; 
+   }
+}
+
+
+@keyframes popup {
+  0% {
+      transform: scale(0.7);
+      -webkit-transform: scale(0.7); 
+   }
+  45% {
+      transform: scale(1.05);
+      -webkit-transform: scale(1.05);
+    }
+
+  80% {
+    transform: scale(0.95);
+    -webkit-transform: scale(0.95); 
+  }
+  
+  100% {
+    transform: scale(1);
+    -webkit-transform: scale(1); 
+  } 
+}
+
+@keyframes poppause {
+  0% {
+      transform: scale(1);
+      -webkit-transform: scale(1); 
+   }
+  100% {
+      transform: scale();
+      -webkit-transform: scale(0.95);
+    }
+}
+
+@keyframes popout {
+ 
+}
+
+@keyframes colorIn {
+    0% {
+       color: rgba(0,0,0,.2); 
+    }
+
+    100% {
+        color: rgba(255,0,0,.5);
+    }
+}
+
+/*------------------ end of modal css ------------------------*/
+
+
+
+
+/*------------------ custom file upload css ------------------*/
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+/*.inputfile:focus .inputfile-1 {
+   outline:none;
+}*/
+
+.inputfile + label {
+    max-width: 80%;
+    font-size: 1.25rem;
+    /* 20px */
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    /* 10px 20px */
+}
+
+.no-js .inputfile + label {
+    display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    /* 4px */
+    margin-right: 0.25em;
+    /* 4px */
+}
+
+/* style 5 */
+
+.inputfile-1 + label {
+    color: #d3394c;
+}
+
+.inputfile-1:focus + label,
+.inputfile-1.has-focus + label,
+.inputfile-1 + label:hover {
+    color: #722040;
+}
+
+.inputfile-1 + label figure {
+    width: 100px;
+    height: 135px;
+    background-color: rgba(100, 221, 23, .5); /*icons bg color*/
+    display: block;
+    position: relative;
+    padding: 30px;
+    margin: 0 auto 10px;
+}
+
+.inputfile-1:focus + label figure,
+.inputfile-1.has-focus + label figure,
+.inputfile-1 + label:hover figure {
+    background-color:rgba(100, 221, 23, .7);
+}
+
+.inputfile-1 + label figure::before,
+.inputfile-1 + label figure::after {
+    width: 0;
+    height: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.inputfile-1 + label figure::before {
+    border-top: 20px solid rgba(255,255,255,.3);
+    border-left: 20px solid transparent;
+}
+
+.inputfile-1 + label figure::after {
+    border-bottom: 20px solid rgba(100, 221, 23, .4);
+    border-right: 20px solid transparent;
+}
+
+.inputfile-1:focus + label figure::after,
+.inputfile-1.has-focus + label figure::after,
+.inputfile-1 + label:hover figure::after {
+    border-bottom-color: rgba(255,255,255,.6);
+}
+
+.inputfile-1 + label svg {
+    width: 100%;
+    height: 100%;
+    fill: rgba(255,255,255,1);
+}
+
+#file-form {
+  
+}
+
+#label-box {
+    position:absolute;
+    width:70%;
+    max-width: 210px;
+    left:50%;
+    margin-left:-105px;
+}
+
+#file-form label {
+    outline:none;
+}
+
+#uploaded-file-name {
+    position:fixed;
+    left:44.7%;
+    font-family: 'helvetica';
+    font-size:14px;
+    width:15%;
+    overflow-x:hidden;
+}
+
+#submit-file-btn {
+    float:right;
+    margin-top:230px;
+}
+
+.btn-green {
+    color: #FFFFFF; 
+    background: rgba(58, 197, 105, .7);
+    display: flex; 
+    overflow: hidden; 
+    padding:12px 12px;
+    cursor:pointer;
+    text-align:center;
+    font-size:14px;
+    border:none;
+    border-radius: 5px; 
+}
+
+.btn-green:hover {
+  background: rgba(58, 197, 105,1);
+}
+/*------------------ end of file upload css ------------------*/
